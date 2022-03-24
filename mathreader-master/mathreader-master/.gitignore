@@ -1,0 +1,9 @@
+bin/
+lib/
+share/
+include/
+*.pyc
+dist/
+pyvenv.cfg
+mathreader.egg-info/
+build/

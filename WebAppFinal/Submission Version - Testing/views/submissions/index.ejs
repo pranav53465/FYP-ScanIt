@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate')%>
+<h1 class="mx-auto">SUBMISSIONS</h1>
+<div>
+  <a href="/submissions/new">New Scan</a>
+</div>
+<% let counter = 0; %> <% for (let submission of submissions){ %> <%
+if(currentUser && submission.author.equals(currentUser._id)) { counter++; %>
+
+<div class="card shadow col-md-6 mx-auto mb-3">
+  <div class="row">
+    <img
+      class="card-img-top"
+      alt="Cannot Find Image"
+      src="<%=submission.image.url%>"
+    />
+    <div class="card-body">
+      <h5 class="card-title"><%= submission.title %></h5>
+      <p class="card-text"><%= submission.description %></p>
+      <p class="card-text">
+        <small class="text-muted"><%= submission.location%></small>
+      </p>
+      <a class="btn btn-info btn-block" href="/submissions/<%=submission._id%>"
+        >View <%=submission.title%></a
+      >
+    </div>
+  </div>
+</div>
+<% } %> <% }%> <% if(counter===0) {%>
+<div class="container">
+  <div class="card shadow col-md-8 mx-auto">
+    <div class="card-header">Welcome</div>
+    <div class="card-body">
+      <h5 class="card-title">You do not have any saved images</h5>
+      <p class="card-text">Upload images to our site to begin!</p>
+      <a href="/submissions/new" class="btn btn-primary btn-block">Begin</a>
+    </div>
+  </div>
+</div>
+<% } %>

@@ -1,0 +1,72 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+  <h1 class="text-center">Edit Submission</h1>
+  <div class="col-6 offset-3">
+    <img src="<%= submission.image.url%>" class="card-img-top" alt="..." />
+    <form
+      action="/submissions/<%=submission._id%>?_method=PUT"
+      method="POST"
+      novalidate
+      class="validated-form"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="submission[title]"
+          value="<%=submission.title %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <!--
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="submission[location]"
+                    value="<%=//submission.location %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image Url</label>
+                <input class="form-control" type="text" id="image" name="submission[image]"
+                    value="<%=//submission.image %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price">Submission Price</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                        aria-describedby="price-label" name="submission[price]" value="<%=//submission.price %>"
+                        required>\<div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            </div> -->
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Recognized</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="submission[description]"
+          required
+        >
+<%= submission.description %></textarea
+        >
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-info">Update Submission</button>
+      </div>
+    </form>
+    <a href="/submissions/<%= submission._id%>">Back To All Submissions</a>
+  </div>
+</div>
